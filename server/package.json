@@ -1,7 +1,7 @@
 {
-  "name": "pwanotas1-nodejs",
+  "name": "anotacoes",
   "version": "1.0.0",
-  "description": "A Notes PWA draft (copy of anotacoes repository), now adding/testing serving it with [Node.js](https://nodejs.org). &#128074;",
+  "description": "Projeto pessoal de aplicação web para anotações (ideias, lembretes, compras?).",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Goliass/PWANotas1-nodejs.git"
+    "url": "git+https://github.com/Goliass/Anotacoes.git"
   },
   "author": "Elías Sauthier",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Goliass/PWANotas1-nodejs/issues"
+    "url": "https://github.com/Goliass/Anotacoes/issues"
   },
-  "homepage": "https://github.com/Goliass/PWANotas1-nodejs#readme",
+  "homepage": "https://github.com/Goliass/Anotacoes#readme",
   "dependencies": {
     "express": "^4.17.1"
   },
