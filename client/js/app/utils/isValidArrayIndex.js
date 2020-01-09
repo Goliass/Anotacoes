@@ -1,0 +1,1 @@
+function isValidArrayIndex(index=-1) {return (index >= 0);}

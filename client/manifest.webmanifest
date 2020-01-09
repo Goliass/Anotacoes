@@ -1,0 +1,21 @@
+{
+  "name": "Anotações",
+  "short_name": "Anotações",  
+  "description": "Aplicação web para anotações (ideias, lembretes, compras?)",
+  "icons": [
+    {
+      "src": "./img/notes-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"      
+    },
+    {
+      "src": "./img/notes-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"      
+    } 
+  ],
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "cadetblue",
+  "theme_color": "cadetblue"
+}

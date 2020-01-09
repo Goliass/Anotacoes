@@ -1,0 +1,122 @@
+:root {
+  --font-size: 1.25rem;
+  --brand-font-size: calc(var(--font-size) * 1.6);
+  --footer-font-size: calc(var(--font-size) * 0.8);
+  --modal-title-font-size: calc(var(--font-size) * 1.2);
+}
+
+.app {
+  background: cadetblue;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: var(--font-size);
+}
+
+#statusPopups {
+  position: fixed; 
+  margin-top: 0.5rem;
+  z-index: 3000; /* to overlap the z-indexes >= 1000 of Bootstrap */
+}
+
+.toast {
+  background-color: whitesmoke;
+  min-height: 3rem;
+}
+
+.icon, 
+.help-icon {
+  max-width: 32px;
+}
+
+.navbar-custom {
+  background: gray;  
+  border: 1px solid whitesmoke;
+}
+
+.brand-custom {
+  font-size: var(--brand-font-size);
+}
+
+.help,
+.about {
+  background: inherit;
+  border-color: inherit;
+  background-color: inherit;
+  border: 0;
+  padding: 0;
+}
+
+.about {
+  margin-top: 0.5rem;
+}
+
+#import {
+  display: none;
+}
+
+.helpModal__content, 
+.aboutModal__content {
+  background-color: gray;
+}
+
+#helpModal__title, 
+#aboutModal__title {
+  font-size: var(--modal-title-font-size);
+}
+
+.helpModal__body, 
+.aboutModal__body {
+  background-color: cadetblue;
+  width: 100%;
+  padding: 1rem 1rem;
+}
+
+.helpModal__body li, 
+.aboutModal__body li {
+  background-color: cadetblue;
+}
+
+#notesNav {
+  width: 100vw;
+  padding-top: 5rem;
+  position: fixed;
+  display: block;
+  z-index: 500;
+  background-color: cadetblue;
+  border-bottom: 1px dashed whitesmoke;
+}
+
+.btn-search {
+  background-color: cadetblue;
+  border-color: whitesmoke;
+}
+
+.not-match {
+  display: none;
+}
+
+#formNote__inputDescription {
+  height: inherit;
+}
+
+main {
+  margin-top: 14rem;
+  margin-bottom: 5rem;
+}
+
+footer {
+  background: gray;
+  padding: 1rem 0;  
+  text-align: center;
+  border: 1px solid rgb(245, 245, 245);  
+  width: calc(100%);
+
+  /* always visible */
+  position: fixed; 
+  bottom: 0;
+  left: 0;
+  font-size: var(--footer-font-size);
+}
+
+footer a {
+  color: #212529; /*Boostrap font color*/
+}

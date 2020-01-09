@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">  
+    <title>Anotações</title>        
+    <meta name="author" content="Elías Sauthier">    
+    <meta name="description" content="Projeto pessoal de aplicação web para anotações (ideias, lembretes, compras?).">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/notesToDo.css">    
+    <link rel="stylesheet" href="css/notesDone.css">    
+    <link rel="stylesheet" href="css/notesDeleted.css">    
+
+    <!-- PWA / Lighthouse audit requisits-->
+    <link rel="manifest" href="./manifest.webmanifest">   
+    <meta name="theme-color" content="cadetblue"/>     
+    <link rel="icon" type="image/png" sizes="192x192" href="./favicon.png">
+    <link rel="apple-touch-icon" type="image/png" sizes="192x192" href="./favicon.png">       
+  </head>
+
+  <body class="app">
+    <header>
+      <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center" id="statusPopupContainer">
+        <div id="statusPopups" class="d-flex flex-column align-items-center">
+        </div>
+      </div>
+
+      <nav class="navbar navbar-light fixed-top navbar-custom">
+        <a class="navbar-brand brand-custom" href="#">Anotações</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item ml-3">
+              <input type="image" id="backup" class="icon" src="/img/backup-icon.svg" alt="Exportar anotações (backup)"></input>
+            </li>
+            <li class="nav-item ml-3">
+              <label for="import"><img src="/img/import-icon.svg" alt="Importar anotações" class="icon"></label>
+              <input type="file" id="import" name="import" accept=".json"></input>
+            </li>
+            <li class="nav-item ml-3">
+              <button class="help" id="helpButton" title="Ajuda" data-toggle="modal" data-target="#helpModal">
+                <img src="img/help-icon.svg" alt="Ajuda" class="icon">
+              </button>   
+            </li>
+
+            <li class="nav-item ml-3">
+              <button class="about" title="Sobre" data-toggle="modal" data-target="#aboutModal">
+                <img src="img/about-icon.svg" alt="Sobre" class="icon">
+              </button>   
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <nav id="notesNav">
+        <div class="btn-group d-flex mx-1" role="group" aria-label="Grupo de botões" id="notesButtons">
+          <button type="button" id="notesToDoButton" class="btn btn-secondary btn-sm" data-target_notes="#notesToDo">
+            <img id="notesToDoButton__icon" class="icon" alt="Anotações adicionadas" src="img/add-icon.svg">
+          </button>
+          <button type="button" id="notesDoneButton" class="btn btn-secondary btn-sm" data-target_notes="#notesDone">
+            <img id="notesDoneButton__icon" class="icon" alt="Anotações verificadas" src="img/done-icon.svg">
+          </button>
+          <button type="button" id="notesDeletedButton" class="btn btn-secondary btn-sm" data-target_notes="#notesDeleted">
+            <img id="notesDeletedButton__icon" class="icon" alt="Anotações excluídas" src="img/del-icon.svg">
+          </button>
+        </div>
+
+        <form class="d-flex mt-3 mb-3 no-gutters justify-content-center justify-content-lg-start ml-lg-3 align-items-center" id="formNote">
+
+          <div class="col-auto">
+            <button type="button" id="searchButton" class="btn btn-secondary btn-sm mr-1 mr-sm-2">
+              <img class="icon" alt="Procurar nas anotações" src="img/search-icon.svg">
+            </button>
+          </div>
+  
+          <div class="input-group col-7 col-sm-7 col-md-6 col-lg-5 col-xl-4">
+              <input type="text" class="form-control form-control-lg" id="formNote__inputDescription" placeholder="Anotar..." aria-label="Anotar..." required aria-required="true">
+              <div class="input-group-append">
+                <span class="input-group-text" id="formNote__inputEmpty">x</span>
+              </div>
+          </div>
+
+          <div class="col-auto">
+            <button type="submit" class="btn btn-secondary btn-sm ml-1 ml-sm-2">
+              <img class="icon" alt="Adicionar anotação" src="img/add-icon.svg">
+            </button>
+          </div>
+        </form>
+      </nav>
+    </header>
+
+    <main>
+      <section id="notesContent">
+        <div class="container-fluid" id="notesToDo">
+        </div>
+
+        <div class="container-fluid" id="notesDone">
+        </div>
+
+        <div class="container-fluid" id="notesDeleted">
+        </div>
+      </section>
+    </main>
+
+
+    <footer>&copy; &infin; <a href="https://github.com/Goliass" target="_blank" class="text-decoration-none" rel="noopener noreferrer">Elías Sauthier</a> &#128579;
+    </footer>
+
+    <!-- Modals -->
+    <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="helpModal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content helpModal__content">
+          <header class="modal-header">
+            <span class="modal-title" id="helpModal__title">Ajuda</span>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </header>
+
+          <ul class="modal-body list-group helpModal__body">
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutModal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content aboutModal__content">
+          <header class="modal-header">
+            <span class="modal-title" id="aboutModal__title">Sobre</span>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </header>
+
+          <ul class="modal-body list-group aboutModal__body">
+            <li class="list-group-item">
+              <p class="text-justify">Projeto pessoal de aplicação web para anotações (ideias, lembretes, compras?).</p>
+              <p class="text-justify">Projeto também com o objetivo de colocar em prática / relembrar tecnologias, frameworks, conceitos etc. da área de desenvolvimento de software que estou estudando.</p>
+            </li>
+            <li class="list-group-item d-flex justify-content-around">
+              <a href="https://github.com/Goliass" target="_blank" rel="noopener noreferrer"><img src="img/github-icon.svg" alt="Github" class="icon"></a>
+
+              <a href="https://br.linkedin.com/in/elias-sauthier" target="_blank" rel="noopener noreferrer"><img src="img/linkedin-icon.svg" alt="Linkedin" class="icon"></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/app/externals/jquery-3.4.1.slim.min.js"></script>
+    <script src="js/app/externals/popper.min.js"></script>
+    <script src="js/app/externals/bootstrap.min.js"></script>
+
+    <script src="js/app/polyfills/polyfills.js"></script>
+    <script src="js/app/utils/isValidArrayIndex.js"></script>
+    <script src="js/app/utils/click.js"></script>
+    <script src="js/app/utils/createElement.js"></script>
+    <script src="js/app/utils/createHtmlAttributeObject.js"></script>
+    <script src="js/app/utils/StatusPopup.js"></script>
+    <script src="js/app/config/sw-register.js"></script> 
+    <script src="js/app/config/storage.js"></script>   
+    <script src="js/app/config/IDBDataBase.js"></script>
+    <script src="js/app/dao/NotesDAO.js"></script>
+    <script src="js/app/models/NotesModel.js"></script>
+    <script src="js/app/models/NotesToDoModel.js"></script>
+    <script src="js/app/views/NotesToDoView.js"></script>
+    <script src="js/app/views/NotesDoneView.js"></script>
+    <script src="js/app/views/NotesDeletedView.js"></script>
+    <script src="js/app/controllers/notesController.js"></script>    
+    <script src="js/app/controllers/noteDoneController.js"></script>
+    <script src="js/app/controllers/noteDeletedController.js"></script>
+    <script src="js/app/services/backup.js"></script>
+    <script src="js/app/services/importAsJSObject.js"></script>
+
+  </body>
+</html> 

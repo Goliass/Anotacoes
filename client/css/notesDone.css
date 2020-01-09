@@ -1,0 +1,16 @@
+#notesDone {
+  display: none;
+}
+
+#notesDone.active{
+  display: block;
+}
+
+.done + #notesDone__description {
+  text-decoration: line-through;
+}
+
+#notesDone .row {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid whitesmoke;
+}

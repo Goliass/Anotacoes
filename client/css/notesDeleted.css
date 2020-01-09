@@ -1,0 +1,12 @@
+#notesDeleted {
+  display: none;
+}
+
+#notesDeleted.active{
+  display: block;
+}
+
+#notesDeleted .row {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid whitesmoke;
+}
