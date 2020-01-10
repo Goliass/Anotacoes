@@ -29,6 +29,59 @@ Em um futuro não muito distante espero melhorá-lo, aplicar correções e inclu
         * Firefox 68.3.0
           * Obs.: a opção/ícone "Exportar anotações (backup)" não funcionou com a app instalada/adicionada à tela inicial
 
+## Como executar (uma das formas) este projeto (sistema operacional Ubuntu/Linux)
+  * Download do projeto
+    * opções "Clone or download" e "[Download ZIP](https://github.com/Goliass/Anotacoes/archive/master.zip)".
+    
+  * Execução do servidor (terminal) (após extração do projeto / arquivo ZIP)
+
+      * [se não estiver instalado] Instalar o gerenciador de pacotes [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm):
+        ```bash
+        $ sudo npm install npm -g 
+        ```
+
+      * Acessar o diretório do servidor:
+        ```bash
+        $ cd server
+        ```
+      
+      * Instalar as dependências (pacotes) utilizados pelo projeto:
+        ```bash
+        $ sudo npm install
+        ```
+
+      * Executar o servidor:
+        ```bash
+        $ npm start
+        ```
+        ou
+        ```bash
+        $ npm run dev
+        ```
+        Se o servidor executar corretamente, uma das mensagens exibidas no terminal deverá ser parecida com *'Server running on port [porta]...'*.
+
+  * Acesso à aplicação
+    * do mesmo dispositivo do projeto (onde o servidor está executando):
+      * no navegador, considerar a url *http://localhost:[porta]*, ex.: http://localhost:3000.  
+      *porta* = número da porta exibida na mensagem  *'Server running on port [porta]...'* (ver acima).  
+
+        **Obs.**: considerar os navegadores dos testes, na mesma versão ou nas versões posteriores.
+
+    * de um dispositivo diferente ao do projeto (tablet, celular):
+      * no dispositivo do projeto (onde o servidor está executando):
+        * fazer o download / instalação do [ngrok](https://ngrok.com/download).
+        
+        * em um novo terminal e do diretório onde o ngrok está instalado, executar:
+          ```bash
+          $ ngrok http [porta]
+          ```
+          *porta* = número da porta exibida na mensagem  *'Server running on port [porta]...'* (ver acima).  
+
+      * agora no dispositivo em si (tablet, celular):
+        * no navegador, considerar a url exibida pelo ngrok em execução no terminal, ex.: *https://demo.ngrok.io/*.  
+        
+          **Obs.**: considerar os navegadores dos testes, na mesma versão ou nas versões posteriores.
+
 ## Agradecimentos / fontes de estudo (entre outros)
 
   * [Alura](https://www.alura.com.br/)

@@ -9,7 +9,7 @@ In a not too far future I hope to improve it, apply fixes and include new featur
 ## Tests (manual)
 
   * "Device simulation" on desktop (through browser developer tools)
-    * Operational system: Ubuntu (Linux)
+    * Operating system: Ubuntu (Linux)
     * Widths between 320px (most tests) and 1366px
     * Browsers: 
       * Chromium 79.0.3945.79
@@ -17,17 +17,70 @@ In a not too far future I hope to improve it, apply fixes and include new featur
 
   * Devices itself
     * Tablet
-      * Operational system: Android
+      * Operating system: Android
       * Browsers: 
         * Chrome 79.0.3945.93
         * Firefox 68.3.0
           * Obs.: the "Exportar anotações (backup)" option/icon didn't work with the app installed / added to home screen
     * Mobile phone
-      * Operational system: Android
+      * Operating system: Android
       * Browsers:
         * Chrome 79.0.3945.93
         * Firefox 68.3.0
           * Obs.: the "Exportar anotações (backup)" option/icon didn't work with the app installed / added to home screen
+
+## How to run (one of the ways) this project (Ubuntu / Linux operating system)
+  * Project download
+    * "Clone or download" and "[Download ZIP](https://github.com/Goliass/Anotacoes/archive/master.zip)" options.
+    
+  * Server execution (terminal) (after project / ZIP file extraction)
+
+      * [if not installed] Install the package manager [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm):
+        ```bash
+        $ sudo npm install npm -g 
+        ```
+
+      * Access the 'server' directory:
+        ```bash
+        $ cd server
+        ```
+      
+      * Install the dependencies (packages) used by the server:
+        ```bash
+        $ sudo npm install
+        ```
+
+      * Run the server:
+        ```bash
+        $ npm start
+        ```
+        or
+        ```bash
+        $ npm run dev
+        ```
+        If the server runs correctly, one of the messages displayed on the terminal should look similar to *'Server running on port [port]...'*.
+
+  * App access
+    * from the same device of the project (where server is running):
+      * in the browser, consider the url *http://localhost:[port]*, eg.: http://localhost:3000.  
+      *port* = port number displayed in message *'Server running on port [port]...'* (see above).  
+
+        **Obs.**: consider the browsers of the tests, in the same or later versions.
+
+    * from a different device than the project (tablet, mobile phone):
+      * on the device of the project (where server is running):
+        * download / install [ngrok](https://ngrok.com/download).
+        
+        * in a new terminal and from the directory where ngrok is installed, run:
+          ```bash
+          $ ngrok http [port]
+          ```
+          *port* = port number displayed in message *'Server running on port [port]...'* (see above).
+
+      * now on the device itself (tablet, mobile phone):
+        * in the browser, consider the url displayed by ngrok running on terminal, eg.: *https://demo.ngrok.io/*.  
+        
+          **Obs.**: consider the browsers of the tests, in the same or later versions.
 
 ## Thanks / study sources (among others)
 
