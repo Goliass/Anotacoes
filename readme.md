@@ -1,3 +1,5 @@
+*[English readme](https://github.com/Goliass/Anotacoes/blob/master/readme_en-US.md)*
+
 # Anotações
 
 Projeto pessoal de aplicação web para anotações (ideias, lembretes, compras?) offline.
