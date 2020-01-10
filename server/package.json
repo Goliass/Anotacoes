@@ -1,7 +1,7 @@
 {
   "name": "anotacoes",
   "version": "1.0.0",
-  "description": "Projeto pessoal de aplicação web para anotações (ideias, lembretes, compras?).",
+  "description": "Projeto pessoal de aplicação web para anotações (ideias, lembretes, compras?) offline.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

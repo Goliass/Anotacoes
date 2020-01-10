@@ -1,6 +1,6 @@
 # Notes
 
-Personal project of a web application for notes (ideas, reminders, shopping list?).
+Personal project of a web application for offline notes (ideas, reminders, shopping list?).
 
 Project also with the purpose of putting into practice / remember technologies, frameworks, concepts, etc. from the software development area I have been studying: JavaScript/ECMAScript, PWAs (Progressive Web Apps), [Node.js](https://nodejs.org) / [Express](https://expressjs.com/), [Bootstrap](https://getbootstrap.com).
 
