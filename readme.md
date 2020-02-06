@@ -2,7 +2,7 @@
 
 # Anotações
 
-Projeto pessoal de aplicação web para anotações (ideias, lembretes, compras?) offline.
+Projeto pessoal de aplicação web (front-end) para anotações (ideias, lembretes, compras?) offline.
 
 Projeto também com o objetivo de colocar em prática / relembrar tecnologias, frameworks, conceitos, etc. da área de desenvolvimento de software que estou estudando: JavaScript/ECMAScript, PWAs (Progressive Web Apps), [Node.js](https://nodejs.org) / [Express](https://expressjs.com/), [Bootstrap](https://getbootstrap.com).
 
