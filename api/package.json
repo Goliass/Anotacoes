@@ -1,0 +1,27 @@
+{
+  "name": "anotacoes",
+  "version": "1.0.0",
+  "description": "Projeto pessoal de aplicação web para anotações (ideias, lembretes, compras?) offline.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Goliass/Anotacoes.git"
+  },
+  "author": "Elías Sauthier",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Goliass/Anotacoes/issues"
+  },
+  "homepage": "https://github.com/Goliass/Anotacoes#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
