@@ -95,6 +95,7 @@ Em um futuro não muito distante espero melhorá-lo, aplicar correções e inclu
   * [Wes Bos / JavaScript 30](https://javascript30.com/)
   * [Bootstrap](https://getbootstrap.com/)
   * [ngrok](https://ngrok.com/)
+  * [Vercel](https://vercel.com) (deploy)
 
 ## Autor(es)
 [Elías Sauthier](https://github.com/Goliass)
