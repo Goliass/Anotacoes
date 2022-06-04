@@ -94,6 +94,7 @@ In a not too far future I hope to improve it, apply fixes and include new featur
   * [Bootstrap](https://getbootstrap.com/)
   * [ngrok](https://ngrok.com/)
   * [Vercel](https://vercel.com) (deploy)
+    * for the application to run correctly by Vercel, some modifications were made based on the topics [Standalone Express](https://vercel.com/guides/using-express-with-vercel#standalone-express) and [Adding a Public Directory](https://vercel.com/guides/using-express-with-vercel#adding-a-public-directory)
 
 ## Author(s)
 [Elías Sauthier](https://github.com/Goliass)
