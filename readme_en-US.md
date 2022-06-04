@@ -93,6 +93,7 @@ In a not too far future I hope to improve it, apply fixes and include new featur
   * [Wes Bos / JavaScript 30](https://javascript30.com/)
   * [Bootstrap](https://getbootstrap.com/)
   * [ngrok](https://ngrok.com/)
+  * [Vercel](https://vercel.com) (deploy)
 
 ## Author(s)
 [Elías Sauthier](https://github.com/Goliass)
