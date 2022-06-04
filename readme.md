@@ -96,6 +96,7 @@ Em um futuro não muito distante espero melhorá-lo, aplicar correções e inclu
   * [Bootstrap](https://getbootstrap.com/)
   * [ngrok](https://ngrok.com/)
   * [Vercel](https://vercel.com) (deploy)
+    * para a aplicação rodar corretamente pela Vercel, foram feitas algumas modificações baseando-se nos tópicos [Standalone Express](https://vercel.com/guides/using-express-with-vercel#standalone-express) e [Adding a Public Directory](https://vercel.com/guides/using-express-with-vercel#adding-a-public-directory)
 
 ## Autor(es)
 [Elías Sauthier](https://github.com/Goliass)
