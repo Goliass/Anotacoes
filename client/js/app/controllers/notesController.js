@@ -27,6 +27,7 @@ const notesDoneView = new NotesDoneView(elNotesDone);
 
 const elNotesDeleted = document.querySelector("#notesDeleted");
 const notesDeletedView = new NotesDeletedView(elNotesDeleted);
+const elNotesDeletedButton = document.querySelector("#notesDeletedButton");
 
 const elHelpButton = document.querySelector("#helpButton");
 const elHelpModalBody = document.querySelector(".helpModal__body");
@@ -77,6 +78,8 @@ function _init() {
     .then(() => {
       display(notesDeletedModel.notes, notesDeletedView);
     });
+
+  notesDeletedButtonLongPress();
 } 
 
 function loadNotesToDo() {
@@ -160,6 +163,19 @@ function removeNoteDeleted(key, store) {
     .catch(error => {
       console.log(error);
       alert(error);
+    });
+}
+
+function removeNoteDeletedAll(store) {
+  return NotesDAO
+    .removeRecordIDBAll(store)
+    .then(() => {
+      notesDeletedModel.empty();
+      notesDeletedView.empty();
+    })
+    .catch(error => {
+      console.log(error);
+      throw error;
     });
 }
 
@@ -263,6 +279,62 @@ elNotesButtons.addEventListener('click', function(evt) {
     }
   }
 });
+
+function notesDeletedButtonLongPress() {
+  try {
+    let startDate;
+    let endDate;
+  
+    let deleteAllMessage = "Excluir todas as anotações da aba 'anotações excluídas' permanentemente?";
+  
+    elNotesDeletedButton.addEventListener('mousedown', event => {
+      startDate = new Date();
+    });
+    
+    elNotesDeletedButton.addEventListener('mouseup', event => {
+      endDate = new Date();
+  
+      let seconds = timeDifferenceInSeconds(startDate, endDate);
+  
+      if (isLongPress(seconds)) {
+        if (confirm(deleteAllMessage)) {
+          removeNoteDeletedAll(notesDeletedStore)
+          .catch(error => {
+            console.log(error);
+            alert("Erro ao excluir permanentemente todas as anotações 'excluídas'. Favor tentar novamente, obrigado!");
+            throw error;
+          });
+        }
+      }
+    });
+  
+    elNotesDeletedButton.addEventListener('touchstart', event => {
+      startDate = new Date();
+  
+    });
+    
+    elNotesDeletedButton.addEventListener('touchend', event => {
+      endDate = new Date();
+  
+      let seconds = timeDifferenceInSeconds(startDate, endDate);
+  
+      if (isLongPress(seconds)) {
+        if (confirm(deleteAllMessage)) {
+          removeNoteDeletedAll(notesDeletedStore)
+          .catch(error => {
+            console.log(error);
+            alert("Erro ao excluir permanentemente todas as anotações 'excluídas'. Favor tentar novamente, obrigado!");
+            throw error;
+          });
+        }
+      }
+    });
+  } catch (error) {
+    console.log(error);
+    alert("Erro na criação da funcionalidade de exclusão permanente de todas as anotações 'excluídas'");
+  }
+}
+
 
 elSearchButton.addEventListener('click', function() {
   let description = elFormNoteInputDescription.value;

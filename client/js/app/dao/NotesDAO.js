@@ -49,6 +49,37 @@ class NotesDAO {
         };
       });
     });
+  } 
+
+  /**
+   * Deletes (clear) all records from the named store
+   * @param {string} storeName name of the IDBObjectStore
+   * @returns a Promise
+   */
+  static removeRecordIDBAll(storeName) {
+
+    return IDBDataBase.openConnection().then(connection => {
+      let objectStoreRequest = connection.transaction([storeName], 'readwrite')
+        .objectStore(storeName)
+        .clear();
+
+      return objectStoreRequest;
+
+    }).then(objectStoreRequest => {
+
+      return new Promise((resolve, reject) => {
+        objectStoreRequest.onsuccess = event => resolve('Registros removidos com sucesso da store (IDB)');
+
+        objectStoreRequest.onerror = event => {
+          console.log("Não foi possível remover o registro da store (IDB)");
+          reject(event.target.error);
+        };
+      });
+    })
+    .catch(error => {
+      console.log(error);
+      throw error;
+    });
   }   
 
   static updateRecordIDB(value, key, store) {

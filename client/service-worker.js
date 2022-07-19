@@ -1,7 +1,7 @@
 const app = (function() {
   let app = {};
 
-  app.version = 8;
+  app.version = 9;
  
   app.caches = {};
   app.caches.appFiles = 'notes-appFiles' + '-v' + app.version;
